@@ -52,39 +52,18 @@
 
 	<build>
 		<plugins>
-			<!-- GWT Maven Plugin -->
 			<plugin>
-				<groupId>net.ltgt.gwt.maven</groupId>
-				<artifactId>gwt-maven-plugin</artifactId>
-				<configuration>
-					<moduleName>
-						com.github.lofi.WebComponentExample
-					</moduleName>
-					<startupUrls>
-						<url>/webcomponentexample/</url>
-					</startupUrls>
-					<compilerArgs>
-						<arg>-generateJsInteropExports</arg>
-						<arg>-compileReport</arg>
-						<arg>-style</arg>
-						<arg>PRETTY</arg>
-						<arg>-draftCompile</arg>
-					</compilerArgs>
-					<devmodeArgs>
-						<arg>-logLevel</arg>
-						<arg>INFO</arg>
-						<arg>-generateJsInteropExports</arg>
-						<arg>-style</arg>
-						<arg>PRETTY</arg>
-					</devmodeArgs>
-					<codeserverArgs>
-						<arg>-logLevel</arg>
-						<arg>INFO</arg>
-						<arg>-generateJsInteropExports</arg>
-						<arg>-style</arg>
-						<arg>PRETTY</arg>
-					</codeserverArgs>
-				</configuration>
+				<groupId>com.vertispan.j2cl</groupId>
+				<artifactId>j2cl-maven-plugin</artifactId>
+				<version>0.16-SNAPSHOT</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -112,5 +91,27 @@
 				<checksumPolicy>fail</checksumPolicy>
 			</snapshots>
 		</repository>
+		<repository>
+			<id>vertispan-snapshots</id>
+			<name>Vertispan Snapshots</name>
+			<url>https://repo.vertispan.com/j2cl/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+		</repository>
 	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>vertispan-snapshots</id>
+			<name>Vertispan Snapshots</name>
+			<url>https://repo.vertispan.com/j2cl/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 </project>
