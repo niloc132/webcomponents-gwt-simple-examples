@@ -10,7 +10,7 @@ public class AppEntryPoint /*implements EntryPoint*/ {
 
 //	@Override
 	public void onModuleLoad() {
-//		DomGlobal.customElements.define("my-button", MyButton.class);
-		Es5CustomElementHelper.registerEs5("my-button", MyButton.class, MyButton::init);
+		DomGlobal.customElements.define("my-button", MyButton.class);
+//		Es5CustomElementHelper.registerEs5("my-button", MyButton.class, MyButton::init);
 	}
 }
